@@ -1,0 +1,21 @@
+{{ $baseurl := .Site.BaseURL}}
+{{ partial "header" . }}
+{{ partial "nav" . }}
+<section class="section">
+  <div class="container">
+    <h1 class="title">{{ .Title }}</h1>
+    <hr />
+    <ul>
+      {{ $data := .Data }}
+      {{ range $key, $value := .Data.Terms }}
+      {{ if ne $key ""}}
+      <h2 class="subtitle is-4">・<a href="{{ $baseurl }}/{{ $data.Plural }}/{{ $key | urlize }}">{{ $key }}</a> ... {{ len $value }}{{ if gt (len $value) 1 }}posts{{ else }}post{{ end }}.</h2>
+      {{ end }}
+      {{ end }}
+    </ul>
+  </div>
+</section>
+<center>
+  {{ partial "ads.html" . }}
+</center>
+{{ partial "footer" . }}

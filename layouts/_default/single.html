@@ -4,9 +4,13 @@
   <div class="container">
     <h2 class="subtitle is-6">{{ .Date.Format "January 2, 2006" }}</h2>
     <h1 class="title">{{ .Title }}</h1>
+    {{ with .Params.categories }}<div>Categories:{{ range . }} <a href="/categories/{{ . | urlize }}/">{{ . }}</a>{{ end }}{{ end }} | {{ with .Params.tags }}Tags:{{ range . }} {{if ne . "" }}<a href="/tags/{{ . | urlize }}/">#{{ . }}</a>{{ end }}{{ end }}</div>{{ end }}
     <div class="content">
+      <hr />
+      {{ if gt (len .Content) 500 }}
       {{ partial "share.html" .}}
       {{ partial "ads.html" .}}
+      {{ end }}
       <br />
       {{ .Content }}
       {{ partial "share.html" .}}

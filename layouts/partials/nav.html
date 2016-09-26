@@ -7,7 +7,7 @@
       <div class="nav-right">
         <nav class="nav-item level is-mobile">
           {{ range .Site.Params.social }}
-          <a class="level-item" href="{{ .url }}">
+          <a class="level-item" href="{{ .url }}" target="_blank">
             <span class="icon">
               <i class="{{ .fa_icon }}"></i>
             </span>
@@ -16,5 +16,17 @@
         </nav>
       </div>
     </nav>
+    <div class="nav-left">
+      <h2 class="title is-6">{{ .Site.Params.subtitle }}</h2>
+    </div>
+    <div class="nav-right">
+      <h2 class="subtitle is-6">
+        <a href="/about/">About</a> |
+        <a href="/post/">Posts</a> |
+        <a href="/tags/swift">Swift</a> |
+        <a href="/categories/">Categories</a> |
+        <a href="/tags/">Tags</a>
+      </div>
+    </h2>
   </div>
 </section>
