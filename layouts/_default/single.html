@@ -14,10 +14,10 @@
       <br />
       {{ .Content }}
       {{ partial "share.html" .}}
+      {{ partial "disqus" . }}
       <br />
       {{ partial "ads.html" .}}
     </div>
   </div>
 </section>
-{{ partial "disqus" . }}
 {{ partial "footer" . }}
